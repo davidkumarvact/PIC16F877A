@@ -1,0 +1,37 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877A ]
+[d frameptr 0 ]
+"10 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"6 C:\Data_backup_class\Demo_Files_PIC\PIC_LED.X\main.c
+[v _gpio_config gpio_config `(v  1 s 1 gpio_config ]
+"11
+[v _main main `(i  1 e 2 0 ]
+"200 C:/Program Files/Microchip/MPLABX/v6.35/packs/Microchip/PIC16Fxxx_DFP/1.8.167/xc8\pic\include\proc/pic16f877a.h
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
+"2668
+[v _RB2 RB2 `VEb  1 e 0 @50 ]
+"2929
+[v _TRISB2 TRISB2 `VEb  1 e 0 @1074 ]
+"11 C:\Data_backup_class\Demo_Files_PIC\PIC_LED.X\main.c
+[v _main main `(i  1 e 2 0 ]
+{
+"19
+[v main@i_33 i `ul  1 a 4 8 ]
+"17
+[v main@i i `ul  1 a 4 4 ]
+"22
+} 0
+"6
+[v _gpio_config gpio_config `(v  1 s 1 gpio_config ]
+{
+"10
+} 0
