@@ -1,0 +1,63 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877A ]
+[d frameptr 0 ]
+"10 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"3 C:\Data_backup_class\Demo_Files_PIC\Timer1_Demo.X\isr.c
+[v _isr isr `II(v  1 e 1 0 ]
+"7 C:\Data_backup_class\Demo_Files_PIC\Timer1_Demo.X\main.c
+[v _init_config init_config `(v  1 s 1 init_config ]
+"16
+[v _main main `(v  1 e 1 0 ]
+"4 C:\Data_backup_class\Demo_Files_PIC\Timer1_Demo.X\timer1.c
+[v _timer1_init timer1_init `(v  1 e 1 0 ]
+"216 C:/Users/PC User/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc/pic16f877a.h
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
+"634
+[v _TMR1 TMR1 `VEus  1 e 2 @14 ]
+"1375
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+"2569
+[v _GIE GIE `VEb  1 e 0 @95 ]
+"2629
+[v _PEIE PEIE `VEb  1 e 0 @94 ]
+"2683
+[v _RB3 RB3 `VEb  1 e 0 @51 ]
+"2884
+[v _TMR1CS TMR1CS `VEb  1 e 0 @129 ]
+"2887
+[v _TMR1IE TMR1IE `VEb  1 e 0 @1120 ]
+"2890
+[v _TMR1IF TMR1IF `VEb  1 e 0 @96 ]
+"2893
+[v _TMR1ON TMR1ON `VEb  1 e 0 @128 ]
+"16 C:\Data_backup_class\Demo_Files_PIC\Timer1_Demo.X\main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"24
+} 0
+"7
+[v _init_config init_config `(v  1 s 1 init_config ]
+{
+"14
+} 0
+"4 C:\Data_backup_class\Demo_Files_PIC\Timer1_Demo.X\timer1.c
+[v _timer1_init timer1_init `(v  1 e 1 0 ]
+{
+"10
+} 0
+"3 C:\Data_backup_class\Demo_Files_PIC\Timer1_Demo.X\isr.c
+[v _isr isr `II(v  1 e 1 0 ]
+{
+"5
+[v isr@count count `ui  1 s 2 count ]
+"17
+} 0

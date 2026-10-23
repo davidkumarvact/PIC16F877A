@@ -1,0 +1,121 @@
+
+
+Microchip MPLAB XC8 Assembler V3.10 build 20250813170317 
+                                                                                                           Fri Oct  9 19:54:41 2026
+
+
+     1                           	processor	16F877A
+     2                           	pagewidth 132
+     3                           	psect	code,global,class=CODE,space=0,delta=2
+     4                           	psect	powerup,global,class=CODE,space=0,delta=2
+     5                           	psect	reset_vec,global,class=CODE,space=0,delta=2
+     6                           	psect	maintext,global,class=CODE,space=0,delta=2
+     7                           	psect	eeprom_data,global,class=EEDATA,space=3,delta=2,noexec
+     8                           	psect	intentry,global,class=CODE,space=0,delta=2
+     9                           	psect	sivt,global,class=CODE,space=0,delta=2
+    10                           	psect	functab,global,class=ENTRY,space=0,delta=2
+    11                           	psect	init,global,class=CODE,space=0,delta=2
+    12                           	psect	cinit,global,class=CODE,space=0,delta=2
+    13                           	psect	text,global,class=CODE,space=0,delta=2
+    14                           	psect	end_init,global,class=CODE,space=0,delta=2
+    15                           	psect	clrtext,global,class=CODE,space=0,delta=2
+    16                           	psect	strings,global,reloc=256,class=CODE,space=0,delta=2
+    17                           	psect	stack,global,class=STACK,space=2,delta=1,noexec
+    18                           	psect	heap,global,class=HEAP,space=7,delta=1,noexec
+    19                           	psect	common,global,class=COMMON,space=1,delta=1
+    20                           	psect	bank0,global,class=BANK0,space=1,delta=1
+    21                           	psect	bank1,global,class=BANK1,space=1,delta=1
+    22                           	psect	bank2,global,class=BANK2,space=1,delta=1
+    23                           	psect	bank3,global,class=BANK3,space=1,delta=1
+    24                           	psect	ram,global,class=RAM,space=1,delta=1
+    25                           	psect	abs1,global,class=ABS1,space=1,delta=1
+    26                           	psect	sfr0,global,class=SFR0,space=1,delta=1
+    27                           	psect	sfr1,global,class=SFR1,space=1,delta=1
+    28                           	psect	sfr2,global,class=SFR2,space=1,delta=1
+    29                           	psect	sfr3,global,class=SFR3,space=1,delta=1
+    30                           
+    31                           	psect	reset_vec
+    32     0000                     reset_vec:
+    33                           
+    34                           ; No powerup routine
+    35                           ; jump to start
+    36     0000  120A  118A  280C   	goto	(start& (0+2047))| (reset_vec& (0+-2048))
+    37                           
+    38                           	psect	maintext
+    39                           
+    40                           ; Microchip MPLAB XC8 C Compiler V3.10
+    41                           ; Copyright (C) 2025 Microchip Technology Inc.
+    42                           ; Auto-generated runtime startup code for final link stage.
+    43                           ;
+    44                           ; Compiler options:
+    45                           ;
+    46                           ; -q --opt=none --chip=16f877a \
+    47                           ; -Mdist/default/production/External_interrupt.X.production.map \
+    48                           ; -DXPRJ_default=default -L--defsym=__MPLAB_BUILD=1 \
+    49                           ; --dfp=C:/Users/PC User/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8 \
+    50                           ; --opt=+asmfile --addrqual=ignore -P --warn=-3 --asmlist \
+    51                           ; --summary=-psect,-class,+mem,-hex,-file --output=+inhx32 \
+    52                           ; --runtime=+clear --runtime=+init --runtime=+keep --runtime=-osccal \
+    53                           ; --runtime=-resetbits --runtime=-resetbits --runtime=-download \
+    54                           ; --runtime=+stackcall --runtime=+config --std=c99 \
+    55                           ; --output=+elf:multilocs --stack=compiled:auto:auto --summary=+xml \
+    56                           ; --summarydir=dist/default/production/memoryfile.xml \
+    57                           ; -oExternal_interrupt.X.production.elf \
+    58                           ; --objdir=dist/default/production --outdir=dist/default/production \
+    59                           ; build/default/production/main.p1 build/default/production/isr.p1 \
+    60                           ; -L--fixupoverflow=error --rors --icl=auto --callgraph=none \
+    61                           ; --errformat=%f:%l:%c: error: (%n) %s \
+    62                           ; --warnformat=%f:%l:%c: warning: (%n) %s \
+    63                           ; --msgformat=%f:%l:%c: advisory: (%n) %s
+    64                           ;
+    65     0000                     C               set	0
+    66     0002                     Z               set	2
+    67     0002                     PCL             set	2
+    68     0000                     INDF            set	0
+    69     0003                     STATUS          equ	3
+    70     000A                     PCLATH          equ	10
+    71                           
+    72                           	psect	functab
+    73     0000                     intlevel0:
+    74     0000                     intlevel1:
+    75     0000                     intlevel2:
+    76     0000                     intlevel3:
+    77     0000                     intlevel4:
+    78     0000                     intlevel5:
+    79                           
+    80                           	psect	init
+    81     000C                     start:
+    82                           
+    83                           	psect	end_init
+    84     000C  120A  118A  280F   	ljmp	start_initialization	;jump to C runtime clear & initialization
+    85                           
+    86                           	psect	clrtext
+    87     0004                     FSR             set	4
+    88                           
+    89                           	psect	strings
+    90     0000                     ___stacklo      equ	0
+    91     0000                     ___stackhi      equ	0
+    92                           
+    93                           	psect	stack
+    94     0000                     ___sp:
+    95     0000                     ___int_sp:
+    96     0000                     ___stack_lo:
+    97     0000                     ___stack_hi:
+    98     0000                     ___int_stack_lo:
+    99     0000                     ___int_stack_hi:
+   100                           
+   101                           	psect	heap
+   102                           
+   103                           ; No heap to be allocated
+   104     0000                     ___heap_lo      equ	0
+   105     0000                     ___heap_hi      equ	0
+
+
+Microchip Technology PIC Macro Assembler V3.10 build 20250813170317 
+Symbol Table                                                                                               Fri Oct  9 19:54:41 2026
+
+               ___sp 0000                 _main 0023                 start 000C           ___stack_hi 0000  
+         ___stack_lo 0000       ___int_stack_hi 0000       ___int_stack_lo 0000  start_initialization 000F  
+          ___heap_hi 0000            ___heap_lo 0000            ___stackhi 0000            ___stacklo 0000  
+           ___int_sp 0000             intlevel0 0000             intlevel1 0000             intlevel2 0000  
+           intlevel3 0000             intlevel4 0000             intlevel5 0000             reset_vec 0000  
