@@ -1,0 +1,58 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877A ]
+[d frameptr 0 ]
+"10 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"15 C:\Data_backup_class\Demo_Files_PIC\PWM_DEMO.X\main.c
+[v _init_config init_config `(v  1 s 1 init_config ]
+"21
+[v _main main `(v  1 e 1 0 ]
+"12 C:\Data_backup_class\Demo_Files_PIC\PWM_DEMO.X\pwm.c
+[v _init_pwm init_pwm `(v  1 e 1 0 ]
+"18
+[v _pwm_set pwm_set `(v  1 e 1 0 ]
+"278 C:/Users/PC User/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc/pic16f877a.h
+[v _PORTC PORTC `VEuc  1 e 1 @7 ]
+"737
+[v _T2CON T2CON `VEuc  1 e 1 @18 ]
+"892
+[v _CCPR1L CCPR1L `VEuc  1 e 1 @21 ]
+"906
+[v _CCP1CON CCP1CON `VEuc  1 e 1 @23 ]
+"1437
+[v _TRISC TRISC `VEuc  1 e 1 @135 ]
+"1816
+[v _PR2 PR2 `VEuc  1 e 1 @146 ]
+"21 C:\Data_backup_class\Demo_Files_PIC\PWM_DEMO.X\main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"30
+[v main@i_47 i `ui  1 a 2 8 ]
+"25
+[v main@i i `ui  1 a 2 6 ]
+"37
+} 0
+"18 C:\Data_backup_class\Demo_Files_PIC\PWM_DEMO.X\pwm.c
+[v _pwm_set pwm_set `(v  1 e 1 0 ]
+{
+[v pwm_set@duty duty `ui  1 p 2 0 ]
+"23
+} 0
+"15 C:\Data_backup_class\Demo_Files_PIC\PWM_DEMO.X\main.c
+[v _init_config init_config `(v  1 s 1 init_config ]
+{
+"20
+} 0
+"12 C:\Data_backup_class\Demo_Files_PIC\PWM_DEMO.X\pwm.c
+[v _init_pwm init_pwm `(v  1 e 1 0 ]
+{
+"17
+} 0
