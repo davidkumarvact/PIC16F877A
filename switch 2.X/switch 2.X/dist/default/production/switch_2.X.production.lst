@@ -1,0 +1,1165 @@
+
+
+Microchip MPLAB XC8 Assembler V3.10 build 20250813170317 
+                                                                                               Mon Nov  2 14:38:16 2026
+
+Microchip MPLAB XC8 C Compiler v3.10 (Free license) build 20250813170317 Og1 
+     1                           	processor	16F877A
+     2                           	pagewidth 120
+     3                           	opt	flic
+     4                           	psect	cinit,global,class=CODE,space=0,merge=1,delta=2
+     5                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
+     6                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1,noexec
+     7                           	psect	maintext,global,class=CODE,space=0,split=1,delta=2
+     8                           	psect	text1,local,class=CODE,space=0,merge=1,delta=2
+     9                           	psect	text2,local,class=CODE,space=0,merge=1,delta=2
+    10                           	dabs	1,0x7E,2
+    11     0000                     
+    12                           ; Generated 22/04/2026 GMT
+    13                           ; 
+    14                           ; Copyright (c) 2026 Microchip Technology Inc. and its subsidiaries.
+    15                           ; 
+    16                           ; Licensed under the Apache License, Version 2.0 (the "License");
+    17                           ; you may not use this file except in compliance with the License.
+    18                           ; You may obtain a copy of the License at
+    19                           ; 
+    20                           ;   http://www.apache.org/licenses/LICENSE-2.0
+    21                           ; 
+    22                           ; Unless required by applicable law or agreed to in writing, software
+    23                           ; distributed under the License is distributed on an "AS IS" BASIS,
+    24                           ; WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    25                           ; See the License for the specific language governing permissions and
+    26                           ; limitations under the License.
+    27                           ; 
+    28                           ; 
+    29                           ; Code-generator required, PIC16F877A Definitions
+    30                           ; 
+    31                           ; SFR Addresses
+    32     0004                     fsr             equ	4
+    33     0004                     fsr0            equ	4
+    34     0000                     indf            equ	0
+    35     0000                     indf0           equ	0
+    36     0002                     pc              equ	2
+    37     0002                     pcl             equ	2
+    38     000A                     pclath          equ	10
+    39     0003                     status          equ	3
+    40     0000                     INDF            equ	0	;# 
+    41     0001                     TMR0            equ	1	;# 
+    42     0002                     PCL             equ	2	;# 
+    43     0003                     STATUS          equ	3	;# 
+    44     0004                     FSR             equ	4	;# 
+    45     0005                     PORTA           equ	5	;# 
+    46     0006                     PORTB           equ	6	;# 
+    47     0007                     PORTC           equ	7	;# 
+    48     0008                     PORTD           equ	8	;# 
+    49     0009                     PORTE           equ	9	;# 
+    50     000A                     PCLATH          equ	10	;# 
+    51     000B                     INTCON          equ	11	;# 
+    52     000C                     PIR1            equ	12	;# 
+    53     000D                     PIR2            equ	13	;# 
+    54     000E                     TMR1            equ	14	;# 
+    55     000E                     TMR1L           equ	14	;# 
+    56     000F                     TMR1H           equ	15	;# 
+    57     0010                     T1CON           equ	16	;# 
+    58     0011                     TMR2            equ	17	;# 
+    59     0012                     T2CON           equ	18	;# 
+    60     0013                     SSPBUF          equ	19	;# 
+    61     0014                     SSPCON          equ	20	;# 
+    62     0015                     CCPR1           equ	21	;# 
+    63     0015                     CCPR1L          equ	21	;# 
+    64     0016                     CCPR1H          equ	22	;# 
+    65     0017                     CCP1CON         equ	23	;# 
+    66     0018                     RCSTA           equ	24	;# 
+    67     0019                     TXREG           equ	25	;# 
+    68     001A                     RCREG           equ	26	;# 
+    69     001B                     CCPR2           equ	27	;# 
+    70     001B                     CCPR2L          equ	27	;# 
+    71     001C                     CCPR2H          equ	28	;# 
+    72     001D                     CCP2CON         equ	29	;# 
+    73     001E                     ADRESH          equ	30	;# 
+    74     001F                     ADCON0          equ	31	;# 
+    75     0081                     OPTION_REG      equ	129	;# 
+    76     0085                     TRISA           equ	133	;# 
+    77     0086                     TRISB           equ	134	;# 
+    78     0087                     TRISC           equ	135	;# 
+    79     0088                     TRISD           equ	136	;# 
+    80     0089                     TRISE           equ	137	;# 
+    81     008C                     PIE1            equ	140	;# 
+    82     008D                     PIE2            equ	141	;# 
+    83     008E                     PCON            equ	142	;# 
+    84     0091                     SSPCON2         equ	145	;# 
+    85     0092                     PR2             equ	146	;# 
+    86     0093                     SSPADD          equ	147	;# 
+    87     0094                     SSPSTAT         equ	148	;# 
+    88     0098                     TXSTA           equ	152	;# 
+    89     0099                     SPBRG           equ	153	;# 
+    90     009C                     CMCON           equ	156	;# 
+    91     009D                     CVRCON          equ	157	;# 
+    92     009E                     ADRESL          equ	158	;# 
+    93     009F                     ADCON1          equ	159	;# 
+    94     010C                     EEDATA          equ	268	;# 
+    95     010D                     EEADR           equ	269	;# 
+    96     010E                     EEDATH          equ	270	;# 
+    97     010F                     EEADRH          equ	271	;# 
+    98     018C                     EECON1          equ	396	;# 
+    99     018D                     EECON2          equ	397	;# 
+   100     0000                     INDF            equ	0	;# 
+   101     0001                     TMR0            equ	1	;# 
+   102     0002                     PCL             equ	2	;# 
+   103     0003                     STATUS          equ	3	;# 
+   104     0004                     FSR             equ	4	;# 
+   105     0005                     PORTA           equ	5	;# 
+   106     0006                     PORTB           equ	6	;# 
+   107     0007                     PORTC           equ	7	;# 
+   108     0008                     PORTD           equ	8	;# 
+   109     0009                     PORTE           equ	9	;# 
+   110     000A                     PCLATH          equ	10	;# 
+   111     000B                     INTCON          equ	11	;# 
+   112     000C                     PIR1            equ	12	;# 
+   113     000D                     PIR2            equ	13	;# 
+   114     000E                     TMR1            equ	14	;# 
+   115     000E                     TMR1L           equ	14	;# 
+   116     000F                     TMR1H           equ	15	;# 
+   117     0010                     T1CON           equ	16	;# 
+   118     0011                     TMR2            equ	17	;# 
+   119     0012                     T2CON           equ	18	;# 
+   120     0013                     SSPBUF          equ	19	;# 
+   121     0014                     SSPCON          equ	20	;# 
+   122     0015                     CCPR1           equ	21	;# 
+   123     0015                     CCPR1L          equ	21	;# 
+   124     0016                     CCPR1H          equ	22	;# 
+   125     0017                     CCP1CON         equ	23	;# 
+   126     0018                     RCSTA           equ	24	;# 
+   127     0019                     TXREG           equ	25	;# 
+   128     001A                     RCREG           equ	26	;# 
+   129     001B                     CCPR2           equ	27	;# 
+   130     001B                     CCPR2L          equ	27	;# 
+   131     001C                     CCPR2H          equ	28	;# 
+   132     001D                     CCP2CON         equ	29	;# 
+   133     001E                     ADRESH          equ	30	;# 
+   134     001F                     ADCON0          equ	31	;# 
+   135     0081                     OPTION_REG      equ	129	;# 
+   136     0085                     TRISA           equ	133	;# 
+   137     0086                     TRISB           equ	134	;# 
+   138     0087                     TRISC           equ	135	;# 
+   139     0088                     TRISD           equ	136	;# 
+   140     0089                     TRISE           equ	137	;# 
+   141     008C                     PIE1            equ	140	;# 
+   142     008D                     PIE2            equ	141	;# 
+   143     008E                     PCON            equ	142	;# 
+   144     0091                     SSPCON2         equ	145	;# 
+   145     0092                     PR2             equ	146	;# 
+   146     0093                     SSPADD          equ	147	;# 
+   147     0094                     SSPSTAT         equ	148	;# 
+   148     0098                     TXSTA           equ	152	;# 
+   149     0099                     SPBRG           equ	153	;# 
+   150     009C                     CMCON           equ	156	;# 
+   151     009D                     CVRCON          equ	157	;# 
+   152     009E                     ADRESL          equ	158	;# 
+   153     009F                     ADCON1          equ	159	;# 
+   154     010C                     EEDATA          equ	268	;# 
+   155     010D                     EEADR           equ	269	;# 
+   156     010E                     EEDATH          equ	270	;# 
+   157     010F                     EEADRH          equ	271	;# 
+   158     018C                     EECON1          equ	396	;# 
+   159     018D                     EECON2          equ	397	;# 
+   160     0005                     _PORTAbits      set	5
+   161     0006                     _PORTB          set	6
+   162     0086                     _TRISB          set	134
+   163     0085                     _TRISA          set	133
+   164     009F                     _ADCON1         set	159
+   165                           
+   166                           	psect	cinit
+   167     07FC                     start_initialization:	
+   168                           ; #config settings
+   169                           
+   170     07FC                     __initialization:
+   171     07FC                     end_of_initialization:	
+   172                           ;End of C runtime variable initialization code
+   173                           
+   174     07FC                     __end_of__initialization:
+   175     07FC  0183               	clrf	3
+   176     07FD  120A  118A  2E55   	ljmp	_main	;jump to C main() function
+   177                           
+   178                           	psect	cstackCOMMON
+   179     0070                     __pcstackCOMMON:
+   180     0070                     ?_main:
+   181     0070                     ?_getSwitch:	
+   182                           ; 1 bytes @ 0x0
+   183                           
+   184                           
+   185                           ; 2 bytes @ 0x0
+   186     0070                     	ds	2
+   187     0072                     ?_check:
+   188     0072                     check@sw:	
+   189                           ; 1 bytes @ 0x2
+   190                           
+   191     0072                     ??_getSwitch:	
+   192                           ; 2 bytes @ 0x2
+   193                           
+   194                           
+   195                           ; 1 bytes @ 0x2
+   196     0072                     	ds	2
+   197     0074                     ??_check:
+   198                           
+   199                           ; 1 bytes @ 0x4
+   200     0074                     	ds	2
+   201     0076                     check@i:
+   202                           
+   203                           ; 2 bytes @ 0x6
+   204     0076                     	ds	2
+   205     0078                     check@i_74:
+   206                           
+   207                           ; 2 bytes @ 0x8
+   208     0078                     	ds	2
+   209     007A                     check@i_75:
+   210                           
+   211                           ; 2 bytes @ 0xA
+   212     007A                     	ds	2
+   213     007C                     check@i_76:
+   214                           
+   215                           ; 2 bytes @ 0xC
+   216     007C                     	ds	2
+   217     007E                     ??_main:
+   218                           
+   219                           	psect	cstackBANK0
+   220     0020                     __pcstackBANK0:	
+   221                           ; 1 bytes @ 0xE
+   222                           
+   223     0020                     main@sw:
+   224                           
+   225                           ; 2 bytes @ 0x0
+   226     0020                     	ds	2
+   227                           
+   228                           	psect	maintext
+   229     0655                     __pmaintext:	
+   230 ;;
+   231 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   232 ;;
+   233 ;; *************** function _main *****************
+   234 ;; Defined at:
+   235 ;;		line 8 in file "main.c"
+   236 ;; Parameters:    Size  Location     Type
+   237 ;;		None
+   238 ;; Auto vars:     Size  Location     Type
+   239 ;;  sw              2    0[BANK0 ] int 
+   240 ;; Return value:  Size  Location     Type
+   241 ;;                  1    wreg      void 
+   242 ;; Registers used:
+   243 ;;		wreg, status,2, status,0, pclath, btemp1, cstack
+   244 ;; Tracked objects:
+   245 ;;		On entry : B00/0
+   246 ;;		On exit  : 0/0
+   247 ;;		Unchanged: 0/0
+   248 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   249 ;;      Params:         0       0       0       0       0
+   250 ;;      Locals:         0       2       0       0       0
+   251 ;;      Temps:          0       0       0       0       0
+   252 ;;      Totals:         0       2       0       0       0
+   253 ;;Total ram usage:        2 bytes
+   254 ;; Hardware stack levels required when called: 2
+   255 ;; This function calls:
+   256 ;;		_check
+   257 ;;		_getSwitch
+   258 ;; This function is called by:
+   259 ;;		Startup code after reset
+   260 ;; This function uses a non-reentrant model
+   261 ;;
+   262                           
+   263     0655                     _main:	
+   264                           ;psect for function _main
+   265                           
+   266     0655                     l913:	
+   267                           ;incstack = 0
+   268                           ; Regs used in _main: [wreg+status,2+status,0+pclath+btemp1+cstack]
+   269                           
+   270                           
+   271                           ;main.c: 10:     ADCON1=0x06;
+   272     0655  3006               	movlw	6
+   273     0656  1683               	bsf	3,5	;RP0=1, select bank1
+   274     0657  1303               	bcf	3,6	;RP1=0, select bank1
+   275     0658  009F               	movwf	31	;volatile
+   276                           
+   277                           ;main.c: 12:     TRISA=0x0F;
+   278     0659  300F               	movlw	15
+   279     065A  0085               	movwf	5	;volatile
+   280     065B                     l915:
+   281                           
+   282                           ;main.c: 13:     TRISB=0x00;
+   283     065B  0186               	clrf	6	;volatile
+   284                           
+   285                           ;main.c: 15:     PORTB=0x00;
+   286     065C  1283               	bcf	3,5	;RP0=0, select bank0
+   287     065D  1303               	bcf	3,6	;RP1=0, select bank0
+   288     065E  0186               	clrf	6	;volatile
+   289     065F                     l917:
+   290                           
+   291                           ;main.c: 18:     {;main.c: 19:         int sw=getSwitch();
+   292     065F  120A  118A  262C  120A  118A  	fcall	_getSwitch
+   293     0664  0871               	movf	?_getSwitch+1,w
+   294     0665  1283               	bcf	3,5	;RP0=0, select bank0
+   295     0666  1303               	bcf	3,6	;RP1=0, select bank0
+   296     0667  00A1               	movwf	main@sw+1
+   297     0668  0870               	movf	?_getSwitch,w
+   298     0669  00A0               	movwf	main@sw
+   299     066A                     l919:
+   300                           
+   301                           ;main.c: 20:         if(sw==-1)
+   302     066A  0A20               	incf	main@sw,w
+   303     066B  1D03               	skipz
+   304     066C  2E71               	goto	u521
+   305     066D  0A21               	incf	main@sw+1,w
+   306     066E  1D03               	btfss	3,2
+   307     066F  2E71               	goto	u521
+   308     0670  2E72               	goto	u520
+   309     0671                     u521:
+   310     0671  2E73               	goto	l923
+   311     0672                     u520:
+   312     0672  2E5F               	goto	l917
+   313     0673                     l923:
+   314                           
+   315                           ;main.c: 25:         {;main.c: 26:             check(sw);
+   316     0673  0821               	movf	main@sw+1,w
+   317     0674  00F3               	movwf	check@sw+1
+   318     0675  0820               	movf	main@sw,w
+   319     0676  00F2               	movwf	check@sw
+   320     0677  120A  118A  2680  120A  118A  	fcall	_check
+   321     067C  2E5F               	goto	l917
+   322     067D  120A  118A  2800   	ljmp	start
+   323     0680                     __end_of_main:
+   324                           
+   325                           	psect	text1
+   326     0680                     __ptext1:	
+   327 ;; *************** function _check *****************
+   328 ;; Defined at:
+   329 ;;		line 48 in file "main.c"
+   330 ;; Parameters:    Size  Location     Type
+   331 ;;  sw              2    2[COMMON] int 
+   332 ;; Auto vars:     Size  Location     Type
+   333 ;;  i               2   12[COMMON] int 
+   334 ;;  i               2   10[COMMON] int 
+   335 ;;  i               2    8[COMMON] int 
+   336 ;;  i               2    6[COMMON] int 
+   337 ;; Return value:  Size  Location     Type
+   338 ;;                  1    wreg      void 
+   339 ;; Registers used:
+   340 ;;		wreg, status,2, status,0, pclath, btemp1, cstack
+   341 ;; Tracked objects:
+   342 ;;		On entry : 0/0
+   343 ;;		On exit  : 0/0
+   344 ;;		Unchanged: 0/0
+   345 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   346 ;;      Params:         2       0       0       0       0
+   347 ;;      Locals:         8       0       0       0       0
+   348 ;;      Temps:          2       0       0       0       0
+   349 ;;      Totals:        12       0       0       0       0
+   350 ;;Total ram usage:       12 bytes
+   351 ;; Hardware stack levels used: 1
+   352 ;; Hardware stack levels required when called: 1
+   353 ;; This function calls:
+   354 ;;		_getSwitch
+   355 ;; This function is called by:
+   356 ;;		_main
+   357 ;; This function uses a non-reentrant model
+   358 ;;
+   359                           
+   360     0680                     _check:	
+   361                           ;psect for function _check
+   362                           
+   363     0680                     l795:	
+   364                           ;incstack = 0
+   365                           ; Regs used in _check: [wreg+status,2+status,0+pclath+btemp1+cstack]
+   366                           
+   367                           
+   368                           ;main.c: 48: void check(int sw);main.c: 49: {;main.c: 50:     while(getSwitch()==sw)
+   369     0680  2FEC               	goto	l911
+   370     0681                     l797:
+   371                           
+   372                           ;main.c: 51:     {;main.c: 52:         PORTB=0x00;
+   373     0681  1283               	bcf	3,5	;RP0=0, select bank0
+   374     0682  1303               	bcf	3,6	;RP1=0, select bank0
+   375     0683  0186               	clrf	6	;volatile
+   376     0684                     l799:
+   377                           
+   378                           ;main.c: 53:         if(sw==0)
+   379     0684  0872               	movf	check@sw,w
+   380     0685  0473               	iorwf	check@sw+1,w
+   381     0686  1D03               	btfss	3,2
+   382     0687  2E89               	goto	u311
+   383     0688  2E8A               	goto	u310
+   384     0689                     u311:
+   385     0689  2EDF               	goto	l827
+   386     068A                     u310:
+   387     068A                     l801:
+   388                           
+   389                           ;main.c: 54:         {;main.c: 55:             PORTB=0x00;
+   390     068A  0186               	clrf	6	;volatile
+   391     068B                     l803:
+   392                           
+   393                           ;main.c: 56:             _delay((unsigned long)((20)*(20000000/4000.0)));
+   394     068B  3082               	movlw	130
+   395     068C  00F5               	movwf	??_check+1
+   396     068D  30DD               	movlw	221
+   397     068E  00F4               	movwf	??_check
+   398     068F                     u537:
+   399     068F  0BF4               	decfsz	??_check,f
+   400     0690  2E8F               	goto	u537
+   401     0691  0BF5               	decfsz	??_check+1,f
+   402     0692  2E8F               	goto	u537
+   403     0693  2E94               	nop2
+   404     0694                     l805:
+   405                           
+   406                           ;main.c: 58:             for(int i=0;i<8;i++)
+   407     0694  01F6               	clrf	check@i
+   408     0695  01F7               	clrf	check@i+1
+   409     0696                     l811:
+   410                           
+   411                           ;main.c: 59:             {;main.c: 60:                 if(getSwitch()!=sw) return;
+   412     0696  120A  118A  262C  120A  118A  	fcall	_getSwitch
+   413     069B  0873               	movf	check@sw+1,w
+   414     069C  0671               	xorwf	?_getSwitch+1,w
+   415     069D  1D03               	skipz
+   416     069E  2EA1               	goto	u325
+   417     069F  0872               	movf	check@sw,w
+   418     06A0  0670               	xorwf	?_getSwitch,w
+   419     06A1                     u325:
+   420     06A1  1903               	skipnz
+   421     06A2  2EA4               	goto	u321
+   422     06A3  2EA5               	goto	u320
+   423     06A4                     u321:
+   424     06A4  2EA6               	goto	l815
+   425     06A5                     u320:
+   426     06A5  2FFB               	goto	l45
+   427     06A6                     l815:
+   428                           
+   429                           ;main.c: 62:                 PORTB|=(1<<i);
+   430     06A6  3001               	movlw	1
+   431     06A7  00F4               	movwf	??_check
+   432     06A8  0A76               	incf	check@i,w
+   433     06A9  2EAC               	goto	u334
+   434     06AA                     u335:
+   435     06AA  1003               	clrc
+   436     06AB  0DF4               	rlf	??_check,f
+   437     06AC                     u334:
+   438     06AC  3EFF               	addlw	-1
+   439     06AD  1D03               	skipz
+   440     06AE  2EAA               	goto	u335
+   441     06AF  0874               	movf	??_check,w
+   442     06B0  1283               	bcf	3,5	;RP0=0, select bank0
+   443     06B1  1303               	bcf	3,6	;RP1=0, select bank0
+   444     06B2  0486               	iorwf	6,f	;volatile
+   445     06B3                     l817:
+   446                           
+   447                           ;main.c: 63:                 _delay((unsigned long)((30)*(20000000/4000.0)));
+   448     06B3  30C3               	movlw	195
+   449     06B4  00F5               	movwf	??_check+1
+   450     06B5  30CD               	movlw	205
+   451     06B6  00F4               	movwf	??_check
+   452     06B7                     u547:
+   453     06B7  0BF4               	decfsz	??_check,f
+   454     06B8  2EB7               	goto	u547
+   455     06B9  0BF5               	decfsz	??_check+1,f
+   456     06BA  2EB7               	goto	u547
+   457     06BB                     l819:
+   458                           
+   459                           ;main.c: 65:                 if(getSwitch()!=sw) return;
+   460     06BB  120A  118A  262C  120A  118A  	fcall	_getSwitch
+   461     06C0  0873               	movf	check@sw+1,w
+   462     06C1  0671               	xorwf	?_getSwitch+1,w
+   463     06C2  1D03               	skipz
+   464     06C3  2EC6               	goto	u345
+   465     06C4  0872               	movf	check@sw,w
+   466     06C5  0670               	xorwf	?_getSwitch,w
+   467     06C6                     u345:
+   468     06C6  1903               	skipnz
+   469     06C7  2EC9               	goto	u341
+   470     06C8  2ECA               	goto	u340
+   471     06C9                     u341:
+   472     06C9  2ECB               	goto	l823
+   473     06CA                     u340:
+   474     06CA  2FFB               	goto	l45
+   475     06CB                     l823:
+   476                           
+   477                           ;main.c: 66:             }
+   478     06CB  3001               	movlw	1
+   479     06CC  07F6               	addwf	check@i,f
+   480     06CD  1803               	skipnc
+   481     06CE  0AF7               	incf	check@i+1,f
+   482     06CF  3000               	movlw	0
+   483     06D0  07F7               	addwf	check@i+1,f
+   484     06D1                     l825:
+   485     06D1  0877               	movf	check@i+1,w
+   486     06D2  3A80               	xorlw	128
+   487     06D3  00FF               	movwf	btemp1
+   488     06D4  3080               	movlw	128
+   489     06D5  027F               	subwf	btemp1,w
+   490     06D6  1D03               	skipz
+   491     06D7  2EDA               	goto	u355
+   492     06D8  3008               	movlw	8
+   493     06D9  0276               	subwf	check@i,w
+   494     06DA                     u355:
+   495     06DA  1C03               	skipc
+   496     06DB  2EDD               	goto	u351
+   497     06DC  2EDE               	goto	u350
+   498     06DD                     u351:
+   499     06DD  2E96               	goto	l811
+   500     06DE                     u350:
+   501     06DE  2FEC               	goto	l911
+   502     06DF                     l827:
+   503     06DF  0372               	decf	check@sw,w
+   504     06E0  0473               	iorwf	check@sw+1,w
+   505     06E1  1D03               	btfss	3,2
+   506     06E2  2EE4               	goto	u361
+   507     06E3  2EE5               	goto	u360
+   508     06E4                     u361:
+   509     06E4  2F33               	goto	l855
+   510     06E5                     u360:
+   511     06E5                     l829:
+   512                           
+   513                           ;main.c: 70:         {;main.c: 71:             PORTB=0x00;
+   514     06E5  0186               	clrf	6	;volatile
+   515     06E6                     l831:
+   516                           
+   517                           ;main.c: 72:             _delay((unsigned long)((20)*(20000000/4000.0)));
+   518     06E6  3082               	movlw	130
+   519     06E7  00F5               	movwf	??_check+1
+   520     06E8  30DD               	movlw	221
+   521     06E9  00F4               	movwf	??_check
+   522     06EA                     u557:
+   523     06EA  0BF4               	decfsz	??_check,f
+   524     06EB  2EEA               	goto	u557
+   525     06EC  0BF5               	decfsz	??_check+1,f
+   526     06ED  2EEA               	goto	u557
+   527     06EE  2EEF               	nop2
+   528     06EF                     l833:
+   529                           
+   530                           ;main.c: 74:             for(int i=7;i>=0;i--)
+   531     06EF  3007               	movlw	7
+   532     06F0  00F8               	movwf	check@i_74
+   533     06F1  3000               	movlw	0
+   534     06F2  00F9               	movwf	check@i_74+1
+   535     06F3                     l839:
+   536                           
+   537                           ;main.c: 75:             {;main.c: 76:                 if(getSwitch()!=sw) return;
+   538     06F3  120A  118A  262C  120A  118A  	fcall	_getSwitch
+   539     06F8  0873               	movf	check@sw+1,w
+   540     06F9  0671               	xorwf	?_getSwitch+1,w
+   541     06FA  1D03               	skipz
+   542     06FB  2EFE               	goto	u375
+   543     06FC  0872               	movf	check@sw,w
+   544     06FD  0670               	xorwf	?_getSwitch,w
+   545     06FE                     u375:
+   546     06FE  1903               	skipnz
+   547     06FF  2F01               	goto	u371
+   548     0700  2F02               	goto	u370
+   549     0701                     u371:
+   550     0701  2F03               	goto	l843
+   551     0702                     u370:
+   552     0702  2FFB               	goto	l45
+   553     0703                     l843:
+   554                           
+   555                           ;main.c: 78:                 PORTB|=(1<<i);
+   556     0703  3001               	movlw	1
+   557     0704  00F4               	movwf	??_check
+   558     0705  0A78               	incf	check@i_74,w
+   559     0706  2F09               	goto	u384
+   560     0707                     u385:
+   561     0707  1003               	clrc
+   562     0708  0DF4               	rlf	??_check,f
+   563     0709                     u384:
+   564     0709  3EFF               	addlw	-1
+   565     070A  1D03               	skipz
+   566     070B  2F07               	goto	u385
+   567     070C  0874               	movf	??_check,w
+   568     070D  1283               	bcf	3,5	;RP0=0, select bank0
+   569     070E  1303               	bcf	3,6	;RP1=0, select bank0
+   570     070F  0486               	iorwf	6,f	;volatile
+   571     0710                     l845:
+   572                           
+   573                           ;main.c: 79:                 _delay((unsigned long)((30)*(20000000/4000.0)));
+   574     0710  30C3               	movlw	195
+   575     0711  00F5               	movwf	??_check+1
+   576     0712  30CD               	movlw	205
+   577     0713  00F4               	movwf	??_check
+   578     0714                     u567:
+   579     0714  0BF4               	decfsz	??_check,f
+   580     0715  2F14               	goto	u567
+   581     0716  0BF5               	decfsz	??_check+1,f
+   582     0717  2F14               	goto	u567
+   583     0718                     l847:
+   584                           
+   585                           ;main.c: 81:                 if(getSwitch()!=sw) return;
+   586     0718  120A  118A  262C  120A  118A  	fcall	_getSwitch
+   587     071D  0873               	movf	check@sw+1,w
+   588     071E  0671               	xorwf	?_getSwitch+1,w
+   589     071F  1D03               	skipz
+   590     0720  2F23               	goto	u395
+   591     0721  0872               	movf	check@sw,w
+   592     0722  0670               	xorwf	?_getSwitch,w
+   593     0723                     u395:
+   594     0723  1903               	skipnz
+   595     0724  2F26               	goto	u391
+   596     0725  2F27               	goto	u390
+   597     0726                     u391:
+   598     0726  2F28               	goto	l851
+   599     0727                     u390:
+   600     0727  2FFB               	goto	l45
+   601     0728                     l851:
+   602                           
+   603                           ;main.c: 82:             }
+   604     0728  30FF               	movlw	255
+   605     0729  07F8               	addwf	check@i_74,f
+   606     072A  1803               	skipnc
+   607     072B  0AF9               	incf	check@i_74+1,f
+   608     072C  30FF               	movlw	255
+   609     072D  07F9               	addwf	check@i_74+1,f
+   610     072E                     l853:
+   611     072E  1FF9               	btfss	check@i_74+1,7
+   612     072F  2F31               	goto	u401
+   613     0730  2F32               	goto	u400
+   614     0731                     u401:
+   615     0731  2EF3               	goto	l839
+   616     0732                     u400:
+   617     0732  2FEC               	goto	l911
+   618     0733                     l855:
+   619     0733  3002               	movlw	2
+   620     0734  0672               	xorwf	check@sw,w
+   621     0735  0473               	iorwf	check@sw+1,w
+   622     0736  1D03               	btfss	3,2
+   623     0737  2F39               	goto	u411
+   624     0738  2F3A               	goto	u410
+   625     0739                     u411:
+   626     0739  2F8F               	goto	l883
+   627     073A                     u410:
+   628     073A                     l857:
+   629                           
+   630                           ;main.c: 86:         {;main.c: 87:             PORTB=0x00;
+   631     073A  0186               	clrf	6	;volatile
+   632     073B                     l859:
+   633                           
+   634                           ;main.c: 88:             _delay((unsigned long)((20)*(20000000/4000.0)));
+   635     073B  3082               	movlw	130
+   636     073C  00F5               	movwf	??_check+1
+   637     073D  30DD               	movlw	221
+   638     073E  00F4               	movwf	??_check
+   639     073F                     u577:
+   640     073F  0BF4               	decfsz	??_check,f
+   641     0740  2F3F               	goto	u577
+   642     0741  0BF5               	decfsz	??_check+1,f
+   643     0742  2F3F               	goto	u577
+   644     0743  2F44               	nop2
+   645     0744                     l861:
+   646                           
+   647                           ;main.c: 90:             for(int i=0;i<8;i+=2)
+   648     0744  01FA               	clrf	check@i_75
+   649     0745  01FB               	clrf	check@i_75+1
+   650     0746                     l867:
+   651                           
+   652                           ;main.c: 91:             {;main.c: 92:                 if(getSwitch()!=sw) return;
+   653     0746  120A  118A  262C  120A  118A  	fcall	_getSwitch
+   654     074B  0873               	movf	check@sw+1,w
+   655     074C  0671               	xorwf	?_getSwitch+1,w
+   656     074D  1D03               	skipz
+   657     074E  2F51               	goto	u425
+   658     074F  0872               	movf	check@sw,w
+   659     0750  0670               	xorwf	?_getSwitch,w
+   660     0751                     u425:
+   661     0751  1903               	skipnz
+   662     0752  2F54               	goto	u421
+   663     0753  2F55               	goto	u420
+   664     0754                     u421:
+   665     0754  2F56               	goto	l871
+   666     0755                     u420:
+   667     0755  2FFB               	goto	l45
+   668     0756                     l871:
+   669                           
+   670                           ;main.c: 94:                 PORTB|=(1<<i);
+   671     0756  3001               	movlw	1
+   672     0757  00F4               	movwf	??_check
+   673     0758  0A7A               	incf	check@i_75,w
+   674     0759  2F5C               	goto	u434
+   675     075A                     u435:
+   676     075A  1003               	clrc
+   677     075B  0DF4               	rlf	??_check,f
+   678     075C                     u434:
+   679     075C  3EFF               	addlw	-1
+   680     075D  1D03               	skipz
+   681     075E  2F5A               	goto	u435
+   682     075F  0874               	movf	??_check,w
+   683     0760  1283               	bcf	3,5	;RP0=0, select bank0
+   684     0761  1303               	bcf	3,6	;RP1=0, select bank0
+   685     0762  0486               	iorwf	6,f	;volatile
+   686     0763                     l873:
+   687                           
+   688                           ;main.c: 95:                 _delay((unsigned long)((30)*(20000000/4000.0)));
+   689     0763  30C3               	movlw	195
+   690     0764  00F5               	movwf	??_check+1
+   691     0765  30CD               	movlw	205
+   692     0766  00F4               	movwf	??_check
+   693     0767                     u587:
+   694     0767  0BF4               	decfsz	??_check,f
+   695     0768  2F67               	goto	u587
+   696     0769  0BF5               	decfsz	??_check+1,f
+   697     076A  2F67               	goto	u587
+   698     076B                     l875:
+   699                           
+   700                           ;main.c: 97:                 if(getSwitch()!=sw) return;
+   701     076B  120A  118A  262C  120A  118A  	fcall	_getSwitch
+   702     0770  0873               	movf	check@sw+1,w
+   703     0771  0671               	xorwf	?_getSwitch+1,w
+   704     0772  1D03               	skipz
+   705     0773  2F76               	goto	u445
+   706     0774  0872               	movf	check@sw,w
+   707     0775  0670               	xorwf	?_getSwitch,w
+   708     0776                     u445:
+   709     0776  1903               	skipnz
+   710     0777  2F79               	goto	u441
+   711     0778  2F7A               	goto	u440
+   712     0779                     u441:
+   713     0779  2F7B               	goto	l879
+   714     077A                     u440:
+   715     077A  2FFB               	goto	l45
+   716     077B                     l879:
+   717                           
+   718                           ;main.c: 98:             }
+   719     077B  3002               	movlw	2
+   720     077C  07FA               	addwf	check@i_75,f
+   721     077D  1803               	skipnc
+   722     077E  0AFB               	incf	check@i_75+1,f
+   723     077F  3000               	movlw	0
+   724     0780  07FB               	addwf	check@i_75+1,f
+   725     0781                     l881:
+   726     0781  087B               	movf	check@i_75+1,w
+   727     0782  3A80               	xorlw	128
+   728     0783  00FF               	movwf	btemp1
+   729     0784  3080               	movlw	128
+   730     0785  027F               	subwf	btemp1,w
+   731     0786  1D03               	skipz
+   732     0787  2F8A               	goto	u455
+   733     0788  3008               	movlw	8
+   734     0789  027A               	subwf	check@i_75,w
+   735     078A                     u455:
+   736     078A  1C03               	skipc
+   737     078B  2F8D               	goto	u451
+   738     078C  2F8E               	goto	u450
+   739     078D                     u451:
+   740     078D  2F46               	goto	l867
+   741     078E                     u450:
+   742     078E  2FEC               	goto	l911
+   743     078F                     l883:
+   744     078F  3003               	movlw	3
+   745     0790  0672               	xorwf	check@sw,w
+   746     0791  0473               	iorwf	check@sw+1,w
+   747     0792  1D03               	btfss	3,2
+   748     0793  2F95               	goto	u461
+   749     0794  2F96               	goto	u460
+   750     0795                     u461:
+   751     0795  2FEC               	goto	l911
+   752     0796                     u460:
+   753     0796                     l885:
+   754                           
+   755                           ;main.c: 102:         {;main.c: 103:             PORTB=0x00;
+   756     0796  0186               	clrf	6	;volatile
+   757     0797                     l887:
+   758                           
+   759                           ;main.c: 104:             _delay((unsigned long)((20)*(20000000/4000.0)));
+   760     0797  3082               	movlw	130
+   761     0798  00F5               	movwf	??_check+1
+   762     0799  30DD               	movlw	221
+   763     079A  00F4               	movwf	??_check
+   764     079B                     u597:
+   765     079B  0BF4               	decfsz	??_check,f
+   766     079C  2F9B               	goto	u597
+   767     079D  0BF5               	decfsz	??_check+1,f
+   768     079E  2F9B               	goto	u597
+   769     079F  2FA0               	nop2
+   770     07A0                     l889:
+   771                           
+   772                           ;main.c: 106:             for(int i=1;i<8;i+=2)
+   773     07A0  3001               	movlw	1
+   774     07A1  00FC               	movwf	check@i_76
+   775     07A2  3000               	movlw	0
+   776     07A3  00FD               	movwf	check@i_76+1
+   777     07A4                     l895:
+   778                           
+   779                           ;main.c: 107:             {;main.c: 108:                 if(getSwitch()!=sw) return;
+   780     07A4  120A  118A  262C  120A  118A  	fcall	_getSwitch
+   781     07A9  0873               	movf	check@sw+1,w
+   782     07AA  0671               	xorwf	?_getSwitch+1,w
+   783     07AB  1D03               	skipz
+   784     07AC  2FAF               	goto	u475
+   785     07AD  0872               	movf	check@sw,w
+   786     07AE  0670               	xorwf	?_getSwitch,w
+   787     07AF                     u475:
+   788     07AF  1903               	skipnz
+   789     07B0  2FB2               	goto	u471
+   790     07B1  2FB3               	goto	u470
+   791     07B2                     u471:
+   792     07B2  2FB4               	goto	l899
+   793     07B3                     u470:
+   794     07B3  2FFB               	goto	l45
+   795     07B4                     l899:
+   796                           
+   797                           ;main.c: 110:                 PORTB|=(1<<i);
+   798     07B4  3001               	movlw	1
+   799     07B5  00F4               	movwf	??_check
+   800     07B6  0A7C               	incf	check@i_76,w
+   801     07B7  2FBA               	goto	u484
+   802     07B8                     u485:
+   803     07B8  1003               	clrc
+   804     07B9  0DF4               	rlf	??_check,f
+   805     07BA                     u484:
+   806     07BA  3EFF               	addlw	-1
+   807     07BB  1D03               	skipz
+   808     07BC  2FB8               	goto	u485
+   809     07BD  0874               	movf	??_check,w
+   810     07BE  1283               	bcf	3,5	;RP0=0, select bank0
+   811     07BF  1303               	bcf	3,6	;RP1=0, select bank0
+   812     07C0  0486               	iorwf	6,f	;volatile
+   813     07C1                     l901:
+   814                           
+   815                           ;main.c: 111:                 _delay((unsigned long)((30)*(20000000/4000.0)));
+   816     07C1  30C3               	movlw	195
+   817     07C2  00F5               	movwf	??_check+1
+   818     07C3  30CD               	movlw	205
+   819     07C4  00F4               	movwf	??_check
+   820     07C5                     u607:
+   821     07C5  0BF4               	decfsz	??_check,f
+   822     07C6  2FC5               	goto	u607
+   823     07C7  0BF5               	decfsz	??_check+1,f
+   824     07C8  2FC5               	goto	u607
+   825     07C9                     l903:
+   826                           
+   827                           ;main.c: 113:                 if(getSwitch()!=sw) return;
+   828     07C9  120A  118A  262C  120A  118A  	fcall	_getSwitch
+   829     07CE  0873               	movf	check@sw+1,w
+   830     07CF  0671               	xorwf	?_getSwitch+1,w
+   831     07D0  1D03               	skipz
+   832     07D1  2FD4               	goto	u495
+   833     07D2  0872               	movf	check@sw,w
+   834     07D3  0670               	xorwf	?_getSwitch,w
+   835     07D4                     u495:
+   836     07D4  1903               	skipnz
+   837     07D5  2FD7               	goto	u491
+   838     07D6  2FD8               	goto	u490
+   839     07D7                     u491:
+   840     07D7  2FD9               	goto	l907
+   841     07D8                     u490:
+   842     07D8  2FFB               	goto	l45
+   843     07D9                     l907:
+   844                           
+   845                           ;main.c: 114:             }
+   846     07D9  3002               	movlw	2
+   847     07DA  07FC               	addwf	check@i_76,f
+   848     07DB  1803               	skipnc
+   849     07DC  0AFD               	incf	check@i_76+1,f
+   850     07DD  3000               	movlw	0
+   851     07DE  07FD               	addwf	check@i_76+1,f
+   852     07DF                     l909:
+   853     07DF  087D               	movf	check@i_76+1,w
+   854     07E0  3A80               	xorlw	128
+   855     07E1  00FF               	movwf	btemp1
+   856     07E2  3080               	movlw	128
+   857     07E3  027F               	subwf	btemp1,w
+   858     07E4  1D03               	skipz
+   859     07E5  2FE8               	goto	u505
+   860     07E6  3008               	movlw	8
+   861     07E7  027C               	subwf	check@i_76,w
+   862     07E8                     u505:
+   863     07E8  1C03               	skipc
+   864     07E9  2FEB               	goto	u501
+   865     07EA  2FEC               	goto	u500
+   866     07EB                     u501:
+   867     07EB  2FA4               	goto	l895
+   868     07EC                     u500:
+   869     07EC                     l911:
+   870                           
+   871                           ;main.c: 50:     while(getSwitch()==sw)
+   872     07EC  120A  118A  262C  120A  118A  	fcall	_getSwitch
+   873     07F1  0873               	movf	check@sw+1,w
+   874     07F2  0671               	xorwf	?_getSwitch+1,w
+   875     07F3  1D03               	skipz
+   876     07F4  2FF7               	goto	u515
+   877     07F5  0872               	movf	check@sw,w
+   878     07F6  0670               	xorwf	?_getSwitch,w
+   879     07F7                     u515:
+   880     07F7  1903               	skipnz
+   881     07F8  2FFA               	goto	u511
+   882     07F9  2FFB               	goto	u510
+   883     07FA                     u511:
+   884     07FA  2E81               	goto	l797
+   885     07FB                     u510:
+   886     07FB                     l45:
+   887     07FB  0008               	return
+   888     07FC                     __end_of_check:
+   889                           
+   890                           	psect	text2
+   891     062C                     __ptext2:	
+   892 ;; *************** function _getSwitch *****************
+   893 ;; Defined at:
+   894 ;;		line 31 in file "main.c"
+   895 ;; Parameters:    Size  Location     Type
+   896 ;;		None
+   897 ;; Auto vars:     Size  Location     Type
+   898 ;;		None
+   899 ;; Return value:  Size  Location     Type
+   900 ;;                  2    0[COMMON] int 
+   901 ;; Registers used:
+   902 ;;		wreg, status,2
+   903 ;; Tracked objects:
+   904 ;;		On entry : 0/0
+   905 ;;		On exit  : 0/0
+   906 ;;		Unchanged: 0/0
+   907 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   908 ;;      Params:         2       0       0       0       0
+   909 ;;      Locals:         0       0       0       0       0
+   910 ;;      Temps:          0       0       0       0       0
+   911 ;;      Totals:         2       0       0       0       0
+   912 ;;Total ram usage:        2 bytes
+   913 ;; Hardware stack levels used: 1
+   914 ;; This function calls:
+   915 ;;		Nothing
+   916 ;; This function is called by:
+   917 ;;		_main
+   918 ;;		_check
+   919 ;; This function uses a non-reentrant model
+   920 ;;
+   921                           
+   922     062C                     _getSwitch:	
+   923                           ;psect for function _getSwitch
+   924                           
+   925     062C                     l767:	
+   926                           ;incstack = 0
+   927                           ; Regs used in _getSwitch: [wreg+status,2]
+   928                           
+   929                           
+   930                           ;main.c: 33:     if(PORTAbits.RA0==1)
+   931     062C  1283               	bcf	3,5	;RP0=0, select bank0
+   932     062D  1303               	bcf	3,6	;RP1=0, select bank0
+   933     062E  1C05               	btfss	5,0	;volatile
+   934     062F  2E31               	goto	u271
+   935     0630  2E32               	goto	u270
+   936     0631                     u271:
+   937     0631  2E35               	goto	l29
+   938     0632                     u270:
+   939     0632                     l769:
+   940                           
+   941                           ;main.c: 34:         return 0;
+   942     0632  01F0               	clrf	?_getSwitch
+   943     0633  01F1               	clrf	?_getSwitch+1
+   944     0634  2E54               	goto	l30
+   945     0635                     l29:	
+   946                           ;main.c: 36:     else if(PORTAbits.RA1==1)
+   947                           
+   948     0635  1C85               	btfss	5,1	;volatile
+   949     0636  2E38               	goto	u281
+   950     0637  2E39               	goto	u280
+   951     0638                     u281:
+   952     0638  2E3E               	goto	l32
+   953     0639                     u280:
+   954     0639                     l775:
+   955                           
+   956                           ;main.c: 37:         return 1;
+   957     0639  3001               	movlw	1
+   958     063A  00F0               	movwf	?_getSwitch
+   959     063B  3000               	movlw	0
+   960     063C  00F1               	movwf	?_getSwitch+1
+   961     063D  2E54               	goto	l30
+   962     063E                     l32:	
+   963                           ;main.c: 39:     else if(PORTAbits.RA2==1)
+   964                           
+   965     063E  1D05               	btfss	5,2	;volatile
+   966     063F  2E41               	goto	u291
+   967     0640  2E42               	goto	u290
+   968     0641                     u291:
+   969     0641  2E47               	goto	l34
+   970     0642                     u290:
+   971     0642                     l781:
+   972                           
+   973                           ;main.c: 40:         return 2;
+   974     0642  3002               	movlw	2
+   975     0643  00F0               	movwf	?_getSwitch
+   976     0644  3000               	movlw	0
+   977     0645  00F1               	movwf	?_getSwitch+1
+   978     0646  2E54               	goto	l30
+   979     0647                     l34:	
+   980                           ;main.c: 42:     else if(PORTAbits.RA3==1)
+   981                           
+   982     0647  1D85               	btfss	5,3	;volatile
+   983     0648  2E4A               	goto	u301
+   984     0649  2E4B               	goto	u300
+   985     064A                     u301:
+   986     064A  2E50               	goto	l791
+   987     064B                     u300:
+   988     064B                     l787:
+   989                           
+   990                           ;main.c: 43:         return 3;
+   991     064B  3003               	movlw	3
+   992     064C  00F0               	movwf	?_getSwitch
+   993     064D  3000               	movlw	0
+   994     064E  00F1               	movwf	?_getSwitch+1
+   995     064F  2E54               	goto	l30
+   996     0650                     l791:
+   997                           
+   998                           ;main.c: 45:     return -1;
+   999     0650  30FF               	movlw	255
+  1000     0651  00F0               	movwf	?_getSwitch
+  1001     0652  30FF               	movlw	255
+  1002     0653  00F1               	movwf	?_getSwitch+1
+  1003     0654                     l30:
+  1004     0654  0008               	return
+  1005     0655                     __end_of_getSwitch:
+  1006     0002                     ___latbits      equ	2
+  1007     007E                     btemp           set	126	;btemp
+  1008     007E                     btemp0          set	126
+  1009     007F                     btemp1          set	127
+  1010     007E                     wtemp0          set	126
+  1011     007F                     wtemp0a         set	127
+  1012     007F                     ttemp0a         set	127
+  1013     0080                     ltemp0a         set	128
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON           14     14      14
+    BANK0            80      2       2
+    BANK1            80      0       0
+    BANK3            96      0       0
+    BANK2            96      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMMON
+
+    _main->_check
+    _check->_getSwitch
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 2     2      0     604
+                                              0 BANK0      2     2      0
+                              _check
+                          _getSwitch
+ ---------------------------------------------------------------------------------
+ (1) _check                                               12    10      2     559
+                                              2 COMMON    12    10      2
+                          _getSwitch
+ ---------------------------------------------------------------------------------
+ (2) _getSwitch                                            2     0      2       0
+                                              0 COMMON     2     0      2
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 2
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _check
+     _getSwitch
+   _getSwitch
+
+Address spaces:
+Name               Size   Autos  Total    Usage
+BITCOMMON           14      0       0      0.0%
+BITBANK0            80      0       0      0.0%
+BITBANK1            80      0       0      0.0%
+BITBANK3            96      0       0      0.0%
+BITBANK2            96      0       0      0.0%
+COMMON              14     14      14    100.0%
+BANK0               80      2       2      2.5%
+BANK1               80      0       0      0.0%
+BANK3               96      0       0      0.0%
+BANK2               96      0       0      0.0%
+STACK                0      0       0      0.0%
+DATA                 0      0      16      0.0%
+
+
+Microchip Technology PIC Macro Assembler V3.10 build 20250813170317 
+Symbol Table                                                                                   Mon Nov  2 14:38:16 2026
+
+                     l30 0654                       l32 063E                       l34 0647  
+                     l29 0635                       l45 07FB                      l801 068A  
+                    l811 0696                      l803 068B                      l901 07C1  
+                    l805 0694                      l903 07C9                      l831 06E6  
+                    l823 06CB                      l815 06A6                      l911 07EC  
+                    l833 06EF                      l825 06D1                      l817 06B3  
+                    l913 0655                      l907 07D9                      l851 0728  
+                    l843 0703                      l819 06BB                      l827 06DF  
+                    l923 0673                      l915 065B                      l781 0642  
+                    l909 07DF                      l861 0744                      l853 072E  
+                    l845 0710                      l829 06E5                      l917 065F  
+                    l791 0650                      l775 0639                      l767 062C  
+                    l871 0756                      l847 0718                      l839 06F3  
+                    l855 0733                      l919 066A                      l769 0632  
+                    l881 0781                      l873 0763                      l857 073A  
+                    l787 064B                      l875 076B                      l867 0746  
+                    l859 073B                      l883 078F                      l795 0680  
+                    l885 0796                      l797 0681                      l895 07A4  
+                    l887 0797                      l879 077B                      l799 0684  
+                    l889 07A0                      l899 07B4                      u300 064B  
+                    u301 064A                      u310 068A                      u311 0689  
+                    u400 0732                      u320 06A5                      u401 0731  
+                    u321 06A4                      u410 073A                      u411 0739  
+                    u500 07EC                      u420 0755                      u340 06CA  
+                    u501 07EB                      u421 0754                      u341 06C9  
+                    u325 06A1                      u270 0632                      u510 07FB  
+                    u350 06DE                      u334 06AC                      u271 0631  
+                    u511 07FA                      u351 06DD                      u335 06AA  
+                    u280 0639                      u440 077A                      u360 06E5  
+                    u520 0672                      u281 0638                      u505 07E8  
+                    u441 0779                      u425 0751                      u361 06E4  
+                    u345 06C6                      u521 0671                      u290 0642  
+                    u450 078E                      u434 075C                      u370 0702  
+                    u291 0641                      u515 07F7                      u451 078D  
+                    u435 075A                      u371 0701                      u355 06DA  
+                    u460 0796                      u461 0795                      u445 0776  
+                    u470 07B3                      u390 0727                      u607 07C5  
+                    u471 07B2                      u455 078A                      u391 0726  
+                    u375 06FE                      u384 0709                      u385 0707  
+                    u537 068F                      u490 07D8                      u491 07D7  
+                    u475 07AF                      u395 0723                      u547 06B7  
+                    u484 07BA                      u485 07B8                      u557 06EA  
+                    u495 07D4                      u567 0714                      u577 073F  
+                    u587 0767                      u597 079B                     _main 0655  
+                   btemp 007E                     start 0000                    ?_main 0070  
+                  _PORTB 0006                    _TRISA 0085                    _TRISB 0086  
+                  _check 0680                    btemp0 007E                    btemp1 007F  
+                  status 0003                    wtemp0 007E          __initialization 07FC  
+           __end_of_main 0680                   ??_main 007E                   ?_check 0072  
+                 _ADCON1 009F                   check@i 0076                   main@sw 0020  
+                 ltemp0a 0080                   ttemp0a 007F                   wtemp0a 007F  
+__end_of__initialization 07FC           __pcstackCOMMON 0070            __end_of_check 07FC  
+                ??_check 0074               __pmaintext 0655        __end_of_getSwitch 0655  
+                __ptext1 0680                  __ptext2 062C                  check@sw 0072  
+   end_of_initialization 07FC                _PORTAbits 0005      start_initialization 07FC  
+              ___latbits 0002            __pcstackBANK0 0020                _getSwitch 062C  
+              check@i_74 0078                check@i_75 007A                check@i_76 007C  
+             ?_getSwitch 0070              ??_getSwitch 0072  
